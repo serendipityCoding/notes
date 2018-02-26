@@ -1,0 +1,36 @@
+{
+  "title": "Lecture 3",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* Java client/server networking capability\n\t* socketed-based and packet-based\n\t* remote method invocation \n\t* servlets and java server pages\n> client will send http request to the web server based on some URL\n> server return the html file and status code in http protocol\n![IMG_6577 2.JPG](quiver-image-url/6FFDBB245C90FA0013164B6B27644723.jpg =3264x2448)\n\n** there is a need to have a dynamic web page int the server side **\n** initially using CGI (using scripting language to process the data), this is where servlet is being used. Other options includes .Net, PHP **\n** CGI connects to the database, connect to other network and then passing the final result in the html format **\n* read data sent by client, generate the results, send the data back\n\t* request has two parts: header + data\n\t* response: data(html) + status code\n* advantage :\n\t* efficient\n\t* convenient\n\t* powerful\n\t* portable\n\t* secure\n\t* inexpensive\n* JSP: use regular html for most of the page , mark dynamic content with special tag\n* common servlet and JSP engine\n\t* apache tomcat\n\t* jetty\n\tglassfish server\n"
+    },
+    {
+      "type": "code",
+      "language": "java",
+      "data": "public void doGet(HttpServletRequest request, HttpServletReponse response){}\npublic void doPost(HttpServletRequest request, HttpServletReponse response){}"
+    },
+    {
+      "type": "markdown",
+      "data": "\n* request type: GET + POST\n\t* HttpServletRequest: HTTP request header + FORM data + client hostname\n\t* HttpServletResponse: status code, response header, PrintWriter to send document content back to the client\n"
+    },
+    {
+      "type": "code",
+      "language": "java",
+      "data": "PrintWriter out = reponse.getwriter();\nout.println(\"new line\");"
+    },
+    {
+      "type": "markdown",
+      "data": "\n* Life Cycle: a server(tomcat) loads and initialise the servlet\n\t* interface servlet: init + service + destroy\n* initialise servlet: initialise database connection pools, getInitParameter() read the initialising parameter, set init parameter in web.xml\n* read form data in servlets:\n\t* request..getParameter(“ “)\n\t* request.getParameterValues(“ “)\n\t* request.getParameterNames()\n\t `Enumeration paramNames=request.getParameterNames()`\n* deploy a web application\n\t* directory structure\n\t* web application archive file\n\t* deployment descriptor (web.xml: describing your servlets and other components that make up your web application)\n* HTTP request headers: (always sent by every HTTP request)\n"
+    },
+    {
+      "type": "code",
+      "language": "java",
+      "data": "GET /search?keywords=servlets+jsp HTTP/1.1\nAccept: image/gif, image/jpg, */* (indicats MIME types browser can handle)\nAccept-Encoding: gzip (indicate encoding browser can handle)\nConnection: Keep-Alive (keep-alive means browser can handle persistent connection)\nCookie: userID=id456578\nHost: www.somebookstore.com\nReferer: http://www.somebookstore.com/findbooks.html\nUser-Agent: Mozilla/4.7 [en] (Win98; U) (String identifying the browser making the request)"
+    },
+    {
+      "type": "markdown",
+      "data": "\n* HTTP status code: perform a number of tasks not other wise possible\n\t* forward client to another page\n\t* indicates a missing resource\n\t* instruct browser to use cached copy\n* public void setStatus(int statusCode)\n* public void sendError(int code, String message)\n* public void sendRedirect(String url) —> set relative URL and set location header\n* response header:\n\t* give forwarding location\n\t* specify cookies,\n\t* supply the page modification date\n\t* instruct the browser to reload the page after a designated interval\n\t* give the document size so that persistent HTTP connections can be used\n\t* designated the type of document being generated\n* persisted servlet state& auto reloading pages —> see examples\n\t* refresh in response header:\n\t\t* the number of seconds until browser should reload page\n\t\t* tell the browser to refresh the page every several seconds \n* the data persist for some time"
+    }
+  ]
+}
