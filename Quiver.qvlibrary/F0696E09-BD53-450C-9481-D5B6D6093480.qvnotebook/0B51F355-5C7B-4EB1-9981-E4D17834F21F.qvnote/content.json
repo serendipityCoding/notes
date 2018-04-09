@@ -1,9 +1,0 @@
-{
-  "title": "JRE, JDK, JVM, Java EE, Java SE",
-  "cells": [
-    {
-      "type": "markdown",
-      "data": "* Java EE, Java SE, Java ME are development environments\n  * JSE: a standard edition being used to deploy portable application for general use\n  * JME: designed for embedded systems (industrial controls to mobile phones)\n  * JSE: additional libraries which provides functionality to deploy fault-tolerant, distributed, multi-tier Java software, based on modular components running on an application server\n* JVM: an abstract machine, providing runtime nevironment in which java byte code can be executed\n  * load code, verifies code, execute code, provide run time environment\n* JRE: Java Runtime Environment, contains JVM, class libraries and other supporting files, no compiler or debugger tools\n  * **JRE = JVM + Java Package Classes + runtime libraries**\n  * Jre is the box and JVM is the content of the box\n* JDK: Java Development Kit, a software development environment used for developing Java applications and aplets\n  * includes JRE, a loader (Java), a compiler (javac), an archiver (jar), a documentation generator (javadoc) and other tools "
-    }
-  ]
-}

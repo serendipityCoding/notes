@@ -1,9 +1,0 @@
-{
-  "title": "Lecture 4 Job Scheduling",
-  "cells": [
-    {
-      "type": "markdown",
-      "data": "* fair sharing\n  * when n users want to share a resource, allocate each 1/n of the shared resosurce\n  * **generalized by max-min fairness**: handles if a user want s less than its fair share, others are allocated equally (same weight for everyone)\n    * **generalized by weighted max-min fairness**: give weights to users according to importance\n* Advantage:\n  * share guarantee: each user can get at least 1/n of the resources, but will get less if demand is less\n  * strategy-proof\n* Disadvantage: jobs cheduling in datacenters is not only about CPUs, it cnsume CPU, memory, disk, and I/O\n\n**fairly share multiple resoures when users hace heterogenous demands on them**\n* users have tasks according to a demand vector, resources given in multiples of demand vector\n* Asset Fairness: equalize each user's sum of resource shares (adding up CPU and other resources, make the heterogenous problem to one dimensional problem)\n![Screen Shot 2018-02-23 at 10.40.08 AM.png](quiver-image-url/BB87BB8FF716CC720B864CD0526C5B2D.png =366x91)\n![Screen Shot 2018-02-23 at 10.40.18 AM.png](quiver-image-url/3D316B89BBDA10129443F55754855DAC.png =586x423)\n*share guarantee is not achieved so it is better to have a separate cluster*\n###dominant resource fairness (depends on both the clusters and users)\n* only focus on the most important resource (the biggest share) when considering fairness\n* dominant share: the fraction of the dominant ressource being allocated\n* online DRF scheduler: whenever there are available resoures and tasks to run schedule a task to the user witht smallest dominant share (o(log n))\n  * approximating the dominant share, over the long run, every user will have dsimilar dominant share"
-    }
-  ]
-}

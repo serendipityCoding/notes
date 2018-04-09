@@ -1,9 +1,0 @@
-{
-  "title": "Backpropagation",
-  "cells": [
-    {
-      "type": "markdown",
-      "data": "* Motivation: copute gradient of expressions through recursive application of chain rule\n* Deriavative: te rate of change of a function with respect to that variable surrounding an infinitesimally small region near a particular point\n* ∇f: the vector of partial derivatives\n  * e.g. ∇f =[𝜕f/𝜕x,𝜕f/𝜕y]=[y,x]\n* Chain rule: chain the gradiant expression together is through multiplication\n  * e.g. 𝜕f/𝜕x=𝜕f/𝜕q*𝜕q/𝜕x\n  * ![Screen Shot 2018-02-24 at 12.59.09 PM.png](quiver-image-url/A010B1ED8FA1FFC09172A49C0218914A.png =718x457)\n* ![Screen Shot 2018-02-24 at 12.59.09 PM.png](quiver-image-url/A010B1ED8FA1FFC09172A49C0218914A.png =718x457)\n* Every gate in a circuit diagram gets some inputs and can right away compute two things\n  1. output value\n  2. local gradient of its inputs with respect to its output value\n* Backpropagation can be though of as gates communicating to each other through the gradient signal whether they want their outputs to increase or decrease so as to make the final output value higher\n* Add gate: take the gradient on its output and distributes it equally to all of its inputs regardless of what their values were during the forward pass\n* Max gate: route the gradient, distribute the gradient(unchanged) to exactly one of its inputs (the input that had the highest value during the forward pass)\n* Multiply gate: its local gradient are the input values (except switched) and this is multipled by the gradient on its output during chain rule\n  * if one of the input to the multily gate is very small and the other is very big, then the multiply gate will d something sightly unintuitive: it will assign a relatively huge gradient to the small input and a tiny gradient to the large input.\n  * MUltiple: the scale of the data has an effect on the magnititude of the gradient for the weight"
-    }
-  ]
-}

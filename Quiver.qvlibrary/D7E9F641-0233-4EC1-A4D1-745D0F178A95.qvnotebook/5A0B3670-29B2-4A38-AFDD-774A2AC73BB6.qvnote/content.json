@@ -1,9 +1,0 @@
-{
-  "title": "Lecture2",
-  "cells": [
-    {
-      "type": "markdown",
-      "data": "* IaaS: infrastructure as a service\n\t* virtualization of resources (AWS)\n\t* providers offer the computing infrastructure\n\t* providers manage resources\n\t* customers rent physical resources\n\t* customers operate OS and software\n\t* Use case: Netflix (video streaming)\n\t\t* transcoding: transform to different video formats (tablets, pc, mobile devices) —> large consuming on CPU\n\t\t* storage: high definition, length (Cache in different places)\n\t\t* streaming: different network, wifi, 3g, 4g, network protocol 5\n\t\t* analytics: collect data of customers (whether they like, where to pause, repeated play —> prediction —> able to produce)\n* PaaS: platform as service\n\t* providers give software platform, middleware, where applications run\n\t* customers develop and maintain and deploy software on top of the platform\n\t* hardware is already there\n\t* auto scalability\n\t* AWS Elastic Beanstalk, Amazon EMR\n\t\t* AWS Elastic Beanstalk: offer API for developers to do web development (multi language available), deploy on the amazon\n\t\t* EMR: data analytics engine, not need to install hadoop and spark, just write the code is enough and then deploy (auto detect the resources needed to run the application)\n* SaaS: service as a service\n\t* providers offer a piece of software/application. they update and maintain\n\t* customers use the application\n* flexibility: IaaS>PaaS>SaaS\n* ease of management: IaaS<PaaS<SaaS\n"
-    }
-  ]
-}
