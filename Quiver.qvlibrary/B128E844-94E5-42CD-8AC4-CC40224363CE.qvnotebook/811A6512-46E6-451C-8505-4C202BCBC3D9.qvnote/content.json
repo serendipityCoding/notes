@@ -1,0 +1,9 @@
+{
+  "title": "Softmax function and its derivative",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* softmax function: takes an N-dimensional vector of arbitrary real values and produces another N-dimensional vector with real values in the tange (0,1) that add up to 1.0\n  * S(a): $ \\begin{bmatrix}a_{1}\\\\a_{2}\\\\...\\\\a_{N}\\end {bmatrix}$ -> $ \\begin{bmatrix}S_{1}\\\\S_{2}\\\\...\\\\S_{N}\\end {bmatrix}$\n  * $ S_{j}=\\frac{e^a_{j}}{\\sum\\limits_{k=1}^{N}e^a_{k}} $\n  * $ \\frac{\\partial S_{i}}{\\partial a_{j}} $: thepartial derivative of the i-th output with respect to the j-th input --> $D_{j}S_{i}$\n  * DS=$\\begin{bmatrix}D_{1}S_{1} ...D_{N}S_{1}\\\\...\\\\D_{1}S_{N} ...D_{N}S_{N}\\end{bmatrix}$\n  * https://eli.thegreenplace.net/2016/the-softmax-function-and-its-derivative/\n  * http://peterroelants.github.io/posts/neural_network_implementation_part04/"
+    }
+  ]
+}

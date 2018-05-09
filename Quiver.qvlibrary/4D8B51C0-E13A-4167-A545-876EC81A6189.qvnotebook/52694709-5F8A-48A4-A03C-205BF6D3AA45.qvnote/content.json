@@ -1,0 +1,90 @@
+{
+  "title": "Basic",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>* server framework</div><div>* uses Javascript on the server</div><div>* asynchronous programming (eliminate waiting, simply continue with the next request)</div><div>* single-threaded, non-blocking —&gt; memory efficient</div><div>* dynamic web page, collect form data, operation on database and files on the server</div><div>* modules in Node.js = libraries in Javascript</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>* include module -&gt; require(’moduleName’)</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>* create own module -&gt;&nbsp;</div><div>```</div><div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "exports.myDateTime=function(){\n\t\treturn Date();\n};"
+    },
+    {
+      "type": "text",
+      "data": "<div></div><div><span class=\"Apple-tab-span\" style=\"white-space: pre;\">\t</span>* exports: make properties and methods available outside the module file<br></div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>* ./: the module is located in the same folder as the Node.Js file</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>* HTTP: build-in module, transfer data over HTTP</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* createServer(req, res): create HTTP server</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* res.writeHead (statusCode, object containing the response headers)</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* req: request from client (http.IncomingMessageobject)</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t\t</span>* has a url property (the part of the url that comes after the domain name)</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>* URL: build-in module, split the query string into readable parts<span class=\"Apple-tab-span\" style=\"white-space: pre;\">\t\t</span></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "http://localhost:8080/?yeear=2018&moth=Jan\n\t\tvar url=require(‘url’)\n\t\tvar q=url.parse(req.url,true).query;\n\t\tq.year -> 2018 q.month -> Jan\n\t\tq.query -> {year: 2018, month: Jan}"
+    },
+    {
+      "type": "text",
+      "data": "<div></div><div><span class=\"Apple-tab-span\" style=\"white-space: pre;\">\t</span>* FS: file system module, work with the file system on the computer&nbsp;<br></div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* read, create, update, delete, rename</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* read: fs.readFile(path, encoding/flag (optional), callbackFunction(err, data))</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* create:&nbsp;</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t\t</span>* fs.appendFile: append specified content to a file</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t\t</span>* fs.open: take a flag as the 2nd argument, ‘w’ -&gt; writing</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t\t</span>* fs.writeFile: replace the specified file and content</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t\t</span>* those three API, if file does not exist, a new file will be created</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* <span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>update</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t\t</span>* fs.appendFile</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t\t</span>* fs.writeFile</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* delete:</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t\t</span>* fs.unlink(path, callBackFunction(err, data))</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* rename:</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t\t</span>* fs.rename(path, newPath/newName, callBackFunction(err, &nbsp;data))</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* upload files:</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t\t</span>* Formidable: module (nom install formidable)</div><div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "//file will be uploaded and placed on a temporary folder\nvar formidable=require('formidable')\nvar form=new formidable.IncomingForm();\nform.parse(req, function(err, fields, files){\n\tres.end();\n}\t\n//move the file from temp folder to a dest folder\nform.parse(req, function(err, fields, files){\n\tvar oldpath=files.fileoupload.path;\n\tvar newpath=newPath+filename;\n\tfs.rename(oldpath,newpath,function(err){});"
+    },
+    {
+      "type": "text",
+      "data": "<div></div><div>* NPM: package manager</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>* package: all the necessary files for a module</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* use package: require(‘packageName’)</div><div>* Event: every action on a computer is an event&nbsp;</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>* objects in Node.Js fire events</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>* event: built-in module, create, fire and listen for events</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* all event properties and methods are an instance of an Event Emitter object</div><div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var events=require(‘events’)\nvar eventEmitter= new events.EventEmitter();\n//create an event handler\nvar myEventHandler=function(){\n\tconsole.log(\"I hear a scream!\");\n}\n//Assign the event handler to an event\neventEmitter.on('scream',myEventHandler);\n//Fire the scream event\neventEmitter.emit('scream');"
+    },
+    {
+      "type": "text",
+      "data": "<div></div><div>* Nodemailer: send emails</div><div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var nodemiler=require('nodemailer');\nvar transporter=nodemiler.createTransport(\n\t{\n\t\tservice:'gmail',\n\t\tauth:{\n\t\t\t\tusername: 'jiaminli.icy@gmail.com',\n\t\t\t\tpassword: 'xxxxx'\n\t\t}\n\t});\nvar mailOptions={ from: , to: (multiple receiver, delimiter by ',') , subject: , text:/html: };\ntransporter.sendMail(mailOptions, function(error,info){\n\t\t\t\t\t\tif(error){\n\t\t\t\t\t\t\tconsole.log(error);\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse{\n\t\t\t\t\t\t\tconsole.log(\"success\");\n\t\t\t\t\t\t}\n});"
+    },
+    {
+      "type": "text",
+      "data": "<div></div><div>* MySQL: module</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>* connect to database</div><div><br></div><div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var mysql=require('mysql');\nvar con=mysql.createConnection({\n\thost:'localhost',\n\tusername: ,\n\tpassword: ,\n\tdatabase: \n});\ncon.connect(function(err){\n\tif(err) throw err;\n\tconsole.log(\"Connected!\");\n});"
+    },
+    {
+      "type": "text",
+      "data": "<div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span></div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>* query a database</div><div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "con.query(sql, callbackFunction(){});"
+    },
+    {
+      "type": "text",
+      "data": "<div></div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* <span class=\"Apple-tab-span\" style=\"white-space:pre\">\t</span>insert multiple records</div><div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var sql=\"\";\nvar values=\"\";\ncon.query(sql, [values], callbackFunction(){});\t"
+    },
+    {
+      "type": "text",
+      "data": "<div><span class=\"Apple-tab-span\" style=\"white-space:pre\"></span></div><div><br></div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* get insert id (only one record could be inserted): result.insertId</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* select query: get field list</div><div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "con.query(sql, function(err,result,fields){});"
+    },
+    {
+      "type": "text",
+      "data": "<div></div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* query injection: mysql.escape(fieldName) / fieldName= ?</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t</span>* result object</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">\t\t\t</span>* properties: fieldCount, affectedRows, insertId, serverStatus, warning Count message, protocol41, changedRows</div>"
+    }
+  ]
+}

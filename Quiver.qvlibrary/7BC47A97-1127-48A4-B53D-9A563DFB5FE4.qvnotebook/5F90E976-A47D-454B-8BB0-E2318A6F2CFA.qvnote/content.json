@@ -1,0 +1,9 @@
+{
+  "title": "Lecture 2",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* attribute type:\n\t* nominal: brown/green\n\t* ordinal (ordered): a, b, d, e…/1,2,3,4,5…\n\t* interval: 13 Jan, 26 Jan\n\t* ratio: $266, $278\n* attribute:\n\t* discrete\n\t* continuous: real numbers (floating points)\n* data set type:\n\t* record data: rows+columns+withText\n\t* transaction/market basket data: each row contains a set of data\n\t* data matrix: rows+columns+only number\n\t* sparse data matrix: lots of zeros"
+    }
+  ]
+}

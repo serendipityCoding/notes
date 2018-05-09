@@ -1,0 +1,9 @@
+{
+  "title": "Lecture 8 JavaBeans",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* Java Beans: zero-argument constructor + no public fields + persistent values should be accessed through get and set methods\n* API:\n  * useBean: <jsp:useBean id=\"beanName\" class=\"package.Class\"/>\n  * setProperty: <jsp:setProperty name=\"beanName\" property=\"proprtyName\" value=\"propertyValue\"/>\n  * getProperty: <jsp:getProperty name=\"beanName\" property=\"propertyName\"/>"
+    }
+  ]
+}

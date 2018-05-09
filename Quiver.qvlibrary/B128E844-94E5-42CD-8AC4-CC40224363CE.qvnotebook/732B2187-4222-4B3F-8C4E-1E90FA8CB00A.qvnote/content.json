@@ -1,0 +1,10 @@
+{
+  "title": "Untitled Note",
+  "cells": [
+    {
+      "type": "latex",
+      "language": "latex",
+      "data": "\\Tree [. [.HT ($\\frac{1}{4}$) [.HT ($\\frac{1}{16}$) \\texttit{Alice Wins)]\n\t\t\t\t\t\t\t [.TH ($\\frac{1}{16}$) [.HT ($\\frac{1}{64}$) \\textit(Alice Wins)]\n\t\t\t\t\t\t\t\t\t\t\t[.TH ($\\frac{1}{64}$) [.HT ($\\frac{1}{256}$) \\textit(Alice Wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[.TH ($\\frac{1}{256}$)\\textit(Bob wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[.HH ($\\frac{1}{256}$)\\textit(Candy wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[.TT ($\\frac{1}{256}$)\\textit(David wins)]]\n\t\t\t\t\t\t\t\t\t\t\t[.HH ($\\frac{1}{64}$)\\textit(Candy wins)]\n\t\t\t\t\t\t\t\t\t\t\t[.TT ($\\frac{1}{64}$)\\textit(David wins)]]\n\t\t\t\t\t\t\t[.HH ($\\frac{1}{16}$)\\textit(Candy wins)]\n\t\t\t\t\t\t\t[.TT ($\\frac{1}{16}$)\\textit(David wins)]]\n\t\t\t\t[.TH ($\\frac{1}{4}$) [.HT ($\\frac{1}{16}$) [.HT ($\\frac{1}{64}$) \\textit(Alice Wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t[.TH ($\\frac{1}{64}$) [.HT ($\\frac{1}{256}$) \\textit(Alice Wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[.TH ($\\frac{1}{256}$)\\textit(Bob wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[.HH ($\\frac{1}{256}$)\\textit(Candy wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[.TT ($\\frac{1}{256}$)\\textit(David wins)]]\n\t\t\t\t\t\t\t\t\t\t\t\t[.HH ($\\frac{1}{64}$)\\textit(Candy wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t[.TT ($\\frac{1}{64}$)\\textit(David wins)]]\n\t\t\t\t\t\t\t\t[.HT ($\\frac{1}{16}$) [.HT ($\\frac{1}{64}$) \\textit(Alice Wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t[.TH ($\\frac{1}{64}$) [.HT ($\\frac{1}{256}$) \\textit(Alice Wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[.TH ($\\frac{1}{256}$)\\textit(Bob wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[.HH ($\\frac{1}{256}$)\\textit(Candy wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[.TT ($\\frac{1}{256}$)\\textit(David wins)]]\n\t\t\t\t\t\t\t\t\t\t\t\t[.HH ($\\frac{1}{64}$)\\textit(Candy wins)]\n\t\t\t\t\t\t\t\t\t\t\t\t[.TT ($\\frac{1}{64}$)\\textit(David wins)]]]]"
+    }
+  ]
+}

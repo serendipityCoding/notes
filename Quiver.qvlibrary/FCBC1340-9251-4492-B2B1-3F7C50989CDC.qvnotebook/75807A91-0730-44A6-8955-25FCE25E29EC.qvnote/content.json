@@ -1,0 +1,9 @@
+{
+  "title": "Lecture 7 JSP",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "#### Life Cycle\n![Screen Shot 2018-03-05 at 7.14.07 PM.png](quiver-image-url/F05942A1F7364458C250BB27FF410EEB.png =670x659)\n* JSP: use regular HTML for most of page, mark servlet code with special tags and then entire JSP page gets translated into a Servlet and Servlet is what actually gets invoked for each request\n* JSP Expression: <% = Java Expression %>\n  * Result: expression evaluated converted to String and place into HTML page"
+    }
+  ]
+}

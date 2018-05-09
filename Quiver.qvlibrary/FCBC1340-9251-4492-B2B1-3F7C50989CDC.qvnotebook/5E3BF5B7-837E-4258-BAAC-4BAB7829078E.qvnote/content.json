@@ -1,0 +1,50 @@
+{
+  "title": "Lecture 4 Session Tracking",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* purpose: maintain state information across a series of request from the same user (originate from the same web browser)\n* HTTP is a stateless protocol\n  * a new connection is made each time a client talks to the web server (the connection does not contain what has happened before)\n* Solutions:\n1. URL writing\n  * client appends some extra data on the end of each URL which identifies the session\n  * Advantage: works even if cookies are disabled or unsupported\n  * Disadvantage\n    * lots of processing (URL encoding)\n    * only available for dynamic pages\n    * not secure (visible)"
+    },
+    {
+      "type": "code",
+      "language": "java",
+      "data": "String tokenID=request.getParameter(\"token\");\nif(token== null){}\nelse{}\nString requestURLSame=request.getRequestURL().toString() +\"?token=\"+tokenID;"
+    },
+    {
+      "type": "markdown",
+      "data": "2. Cookies\n    * a small amount of information sent by a servlet to a browser, saved y the browser and later sent back to the server in subsequent reuests\n    * a cookie'a value can be used to uniquely identify a client (relative small)\n    > In servlet: use javax,servlet.http.cookie\n    * Advantage:\n      * easy to implement\n      * very customizable\n      * persist across web browser shutdowns\n      * the token is not included in the query string\n    * Disadvantage:\n      * cookie support can be turned of for security reason\n      * not universal browser support"
+    },
+    {
+      "type": "code",
+      "language": "java",
+      "data": "Cookie c=new Cookie(name, value);\nc.setMaxAge(int);\n//specifies how long (in seconds) the cookie should be kept by the client\n// -1 means forever\nc.setComment(\"\");\nc.setPath(\"URI\");\nHttpServletResponse.addCookie(c);"
+    },
+    {
+      "type": "markdown",
+      "data": "3. Hidden form fields\n  * \\<input type=\"hiddent\" name=\"token\" value=\"\">\n  * Advantage:\n    * work even if cookie are disabled or unsupported\n    * only require reading and writing parameters\n  * Disadvantage:\n    * lots of processing\n    * all pages must be the result of form submissions \n    * cannot maintain persistent information about a client\n  **independent from JAVA sever side, they are the underlying mechanisms for pass a server-generated unique ID, they do not high-level rogramming APIs or a framework for managing sessions**\n* Session Tracking API: offers high-level API for managing session info\n  * buid on to of COokie or URL rewriting\n  * could automatically switch to URL rewriting if cookies are disabled or unsupported\n  * generate & maintain session ID transparently (internal hash table for session ID) --> setAtribute, getAttribute\n  * session object live on the server\n  * automatically associatd with client via cookies or RURL rewriting\n    * request.getSession(true) --> get either existing or new session\n    * request.getSession(false) --> return null if no session currently associated with this request"
+    },
+    {
+      "type": "code",
+      "language": "java",
+      "data": "Session s=request.getSession(true);\ns.isNew();//if session is new to client (not to page)\ns.getCreationTime(); //return time at which session was first created\ns.getLastAccessedTie(); //return time at which session was last sent from the client\ns.invalidate(); // invalidate the session and unbinds al objects associated with it\ns.getMaxInactiveInterval();\ns.setMaxInactiveInterval();// the amount od tie session should ho withour acess before getting validation\ns.getId();\ns.getAttrbute(\"name\"); //extracts a previsouly stored value from a session object\ns.setAttribute(\"name\",value);//associate a value with a name\ns.removeAttribute();\ns.getAttributeNames(); //return names of all attributes in the session"
+    },
+    {
+      "type": "markdown",
+      "data": "![Screen Shot 2018-02-05 at 7.51.18 PM.png](quiver-image-url/12F7B1ED7D270EA8A8BC0627E67BFCF5.png =508x257)\n* Use URL rewriting:\n  * session tracking code: no change\n  * code that generateshypertext links back to same site\n    *if using URL rewriting, response.encode(URL) appends the session info rthe URL\n**Session objects take up memory in the server**\n**Session objects can be shared by multiple servlets/JSPs**\n![Screen Shot 2018-02-05 at 8.28.27 PM.png](quiver-image-url/AD597884189DEF81BC25010465FE27C1.png =585x271)\n* In Java, we could create event listener for each event\n  * Session Listener: \n    1. being notified when an HTTP session is activated or is about to be destroyed\n    2. monitor the state of HTTP session and their attributes\n    > create countter of how many sessions are created/destroyed  \n"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<listener>\n  <listener-class>mySessionTracker</listener-class>\n</listener>"
+    },
+    {
+      "type": "code",
+      "language": "java",
+      "data": "public class SessionTracker implements HttpSessionListener\npublic class SessionTracker implements HttpSessionListener, HttpSessionAttributedListener\nsessionCreated(HttpSessionEvent se);\nsessionDestroyed(HttpSessionEvent se);\nattributedAdded(HttpSessionEvent se);\nattributedReplaced(HttpSessionEvent se);\nattributedRemoved(HttpSessionEvent se);"
+    },
+    {
+      "type": "markdown",
+      "data": "*copy the compiled event listener class into the web-inf/class directory of the web application*\n> SuppressWarning(\"unchecked\") --> do not show warnings in the web"
+    }
+  ]
+}

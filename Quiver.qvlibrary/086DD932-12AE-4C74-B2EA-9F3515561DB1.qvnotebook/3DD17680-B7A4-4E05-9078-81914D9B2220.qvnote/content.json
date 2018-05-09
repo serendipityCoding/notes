@@ -1,0 +1,9 @@
+{
+  "title": "Basic",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* An estimator is a high level representation of a complete model. It handles the detail of initialisation, logging, saving and restoring and many other featrures\n\t* derived from tf.estimator.Estimator\n\t* create one or more input functions\n\t\t* a function returns a tuple \n\t\t\t* feature: a python dictionary\n\t\t\t* label\n> use TensorFlow dataset API:\n> TextLineDataset: read lines from text files\n> TFRecordDataset: read records from TFRecord files\n> FixedLengthRecordDataset: read fixed size records from binary file\n> Iterator: provide a way to access one data set element at a time\n  * define the models feature columns\n  * instantiate an estimator, specifying the feature columns and various hyperparameters\n> tf.estimator.DNNClassifier: for deep models that perform multi-class classification\n> tf.estimator.DNNLinearCombinedClassifier: for wide-n-deep models\n> tf.estimator.LinearClassifier: for classifiers based on linear models\n  * classifier = tf estimator,DNNClassifier(feature_columns=my_feature_columns, hidden)units=[], n_classes=)\n\t* call one ore more methods on the estimator object, passing the appropriate input function as the source of the data\n\t\t* train the model\n\t\t* evaluate the trained model\n\t\t* make predictions from the trained model"
+    }
+  ]
+}

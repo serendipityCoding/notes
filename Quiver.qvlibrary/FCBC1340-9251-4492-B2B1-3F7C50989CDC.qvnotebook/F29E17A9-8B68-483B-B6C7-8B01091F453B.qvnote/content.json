@@ -1,0 +1,18 @@
+{
+  "title": "Lecture 1 Java/Applet",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* Features:\n\t* Safe: check array bound\n\t* Web-enabled: applet run on major browser\n\t* All OS valid\n\t* Java program compile to JVM and byte code run on JVM/JIT to execute \n\t* Different GUI platform\n\t* 8 *primitive* data structures\n\t* Link native method to Java\n\t* Simple (no head file, no make file, memory management —> garbage collection, everything is a pointer, /pass by reference/)\n* Five phase: \n\t1. Edit (store in the disk)\n\t2. Compile (store in the disk)\n\t3. Load (disk —> main memory)\n\t4. Verify (main memory)\n\t5. Execute (main memory)Sys\n* javax.swing.JOptionPane: pop up a dialog box\n\t* showMessageDialog(null, string to display, title bar, type of message dialog)\n\t* showInputDialog(pop up message)\n* Applet: not a standalone application, not a server side application\n\t* do not have main method\n\t* initialization is done in the init method and draw in the paint()\n\t* a java program run as part of a WWW page\n\t* need an HTML file\n\t* load HTML page into a JAVA enabled browser\n"
+    },
+    {
+      "type": "code",
+      "language": "java",
+      "data": "import java.applet.applet;\nimport java.awt.*;"
+    },
+    {
+      "type": "markdown",
+      "data": "  * cannot read from ow write to the file system of the computer viewing the applets\n  * cannot run any programs on the browser’s computer\n  * cannot establish connections between the user’s computer and another computer except with the server where the applets are stored"
+    }
+  ]
+}

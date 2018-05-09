@@ -1,0 +1,9 @@
+{
+  "title": "Ideas about GE2326 Project",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* Recommendation system on news/music... using naive bayes model.. to predict the preference\n  * gather data using google form / online data-->easier\n  * how to define accuracy\n* Ross-Littlewood paradox (just for fun, I don't think this one fits fora project)\n* will it save more time if we read from the second choice in the multiple choice question?\n* If the probability of wining and losing are 50% and 50%, why gamblers are more likely to lose all his money instead of keep a balance?\n* You are on a game show. The host has chosen two (real and distinct) numbers and has hidden them behind doors A and B. She allows you to choose and open one of the doors, thus revealing one of the numbers. Then, she asks you: is the number behind the other door bigger or smaller than the number you have revealed? Your task is to answer this question correctly with probability strictly greater than one half.\n* Three people — Mr. White, Mr. Gray, and Mr. Black — agree to a duel subject to the following rules. Mr. White will shoot first, as he is the worst shot, and only hits his mark 1/3 of the time. Mr. Gray will go second, as he is a better marksman and hits his targets 2/3 of the time. Mr. Black, who never misses, will shoot third.\nIf you’re Mr. White, what should you do?\n* Parrondo's Paradox"
+    }
+  ]
+}

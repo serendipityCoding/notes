@@ -1,0 +1,9 @@
+{
+  "title": "Tutorial 3",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "###Sysbench\n* a scriptable multi-threaded benchmark tool based on LuaJIT.\n* Bundled benchmarks:\n  1. oltp_*.lus: a coolection of OLTP-like databse benchmarks\n  2. fileio: a filesystem-level benchmark\n  3. cpu: a simple CPU benchmark\n  4. memory: a memory access benchmark\n  5. threads: thread-based scheduler benchmark\n  6. mutex: a POSIX mutex benchmark\n* Advantage:\n  1. rate and latency precentiles and histograms\n  2. low overhead even with thousands of concurrent threads (able to  generate large number of events per second)\n  3. new benchmarks can be easily created by impleenting pre-defined hooks in user provided Lua scripts\n  4. can be used as  a general-purpose Lua interpreter\n* Syntax: sysbench [options] ... [testname] [command]\n  * testname: an optional name of a built-in test/a name of one of the bundled Lua scriptes/a path to a custom Lua scripts\n  **if no testname is specified in the command line or the testname is a dash, sysbench will expect a Lua script to execute**\n  * command: an optional argument that will be passed by sysbench to the built-in test, defines the action that must e performed by the test\n    1. prepare: performa preparative actions for those test which need them\n    > creating the necessary files on the disk for the fileio test\n    > filling the test database for database benchmarks\n    2. run: run the actual test specified with the testname argument\n    3. cleanup: removes temporary data after the test run \n    4. help: deslay the usage information for the test specified with the testname argument\n  * options: a list of options starting with '--'"
+    }
+  ]
+}

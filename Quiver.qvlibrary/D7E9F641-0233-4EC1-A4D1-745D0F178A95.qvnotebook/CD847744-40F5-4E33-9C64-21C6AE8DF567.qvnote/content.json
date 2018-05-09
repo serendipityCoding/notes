@@ -1,0 +1,9 @@
+{
+  "title": "Full virtualization vs Para-virtualization",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* Full virtualization \n  * guest OS are unaware of each other\n  * provide support for unimodified guest OS\n  * hypervisor directly interact with the hardware such as CPU, disk\n  * hypervisor allow to run multiple OS simultaneously on host computer\n  * each guest server run on its own OS\n* Para Virtualization\n  * Guest server are ware of each other\n  * hypervisor doe snot need large amount of procesing power to manage guest OS\n  * the entire system work as a cohesive unit\n* Comparison\n  * Advantage\n    * Full virtualization\n      * good isolcation and security\n      * multiple guest OS can run simultaneously on the same hardware\n      * no hardware assist or OS assist to virutalize sensitive nd priviledged instructions\n    * Para-virtualization\n      * Guest OS can directly communicate with hypervisor\n      * efficient virtualization \n      * allow user to make use of new pr modified device drivers\n  * Limitation\n    * Full virtualization:\n      * emulation leads to slow performance\n      * hypervisor contan the device driver and difficult for new device drivers to be installed by users\n    * Para virtualization \n      * require the guest OS to be modified to interact with para virtualization interfaces\n      * require siginificant support and maintaibility issues in productin environment\n      * "
+    }
+  ]
+}

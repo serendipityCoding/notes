@@ -1,0 +1,9 @@
+{
+  "title": "Lecture 9 Storage Systems",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* NoSQL (Not only SQL): \n  * Data is modeled in means other than tabular relations\n  * **better scalability**, simpler design\n* CAP theoream:\n  * Consistency: a read sees the reuslt after all previously completed writes\n  * Availability: read and writes always succeed\n  * Partition tolerance: guaranteed properties still hold even when network failures prevent some nodes from communicating\n  * when not all the node are connected (network issue) --> CA is not possible\n  * AP database:\n    * When the network is not available, write request to a single server is acceptable, but the servers cannot coomunicate with each other, the others severs cannot get the update. So if the user get the data on the other server, the data is not consistent\n  * CP database:\n    * When the network is not available, the write request is rejected so that the consistency of all the servers is maintained.\n  * A over C\n    * for banking system or email systme(where latency is not so important), consistency is important\n    * for cloud computing or online shopping sytem, the instant reponse is necessary\n  * How to deal with consistency: load balancing through the network layer\n* Distributed data store --> hashing: deterministic, efficient, load balancing\n  * Chord:"
+    }
+  ]
+}

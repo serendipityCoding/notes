@@ -1,0 +1,19 @@
+{
+  "title": "Computation on NumPy Arrays: Universal Functions",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* The key to make NumPy array computation fast is to use vectorized operations\n  * the dynamic interpreted nature of the language\n  > the fact that types are flexible, so that sequences of operations cannot be copiled down to efficient machine codes as in language like C\n* Vectorized operation: apply to each element, push the loop into the compiled layer that underlies NumPy \n  * ufuncs: execute repeated operations on values in NumPy arrays"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "data": "np.arange(5) / np.arange(1, 6)\nx = np.arange(9).reshape((3, 3))\n2 ** x"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "data": "x = np.array([3 - 4j, 4 - 3j, 2 + 0j, 0 + 1j])\nnp.abs(x)\n#returns the magnitude of complex data"
+    }
+  ]
+}

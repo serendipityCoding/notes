@@ -1,0 +1,27 @@
+{
+  "title": "Lecture 5 Web Application Security",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* Major security issue:\n  * preventing unsuthorized users from accessing sensitive data\n    * authentication\n      1. collection user identiyf information from an end user (browser interface)\n      2. transporting collected user identify information to the web server (HTTP, HTTPS, HTTP+SSL)\n      3. perform identify checking with backend (validation with databse, files, directories-->LDAP)\n      4. keep track of the previously authenticated users for further HTTP operation\n    * access restriction\n  * preventing attackers from stealing network data while it is in transit\n    * encryption (SSL)\n* Secure Socket Layer (SSL): a protocol transmitting private web documents over the public internet\n  * employ privte and pulic key to encrypt data\n  * require an SSL connection start with https: (port 443) instead of http: (port 80)\n  * SSL cerficate: doman, location, server's public key ( enable encryption of sensitive information during onlien transactions be means of using hybrid cryptosystem)\n  ![Screen Shot 2018-02-12 at 7.30.18 PM.png](quiver-image-url/3DC9DD90FB3473B4231CE72DF450F0A0.png =762x557)\n  **the public and private key are created in the first handsake**\n* Web application security:\n  * Declarative security: none of the individual sevlets or JSP pages need any security conscious code\n    * prevent unauthorized access\n    * safeguard network data: in the deployment descriptor to specify which URL should be accessible only with SSL\n    * Disadvantage:\n      * access is all or nothing\n      * access based on exact password atches\n      * involves server-specific component\n      * all pages use same mechanism\n  * Programmatic security: each protected resource authenticates users and decides what access to grant\n    * protected servlets and JSP pages at least partially manager their own security\n    * each servlet or JSP pages has to check the network protocol used to aceess it\n    * Advantage:\n      1. totally portable\n      2. permits custom password-matching strategies\n      3. no web.xml entries is needed\n    * Disadvantage:\n      1. harder to write and maintain\n      2. each and every resource has to use the code\n* BASIC authentication: web server collect user identification information via a dialog boax that is provided by browser (no customization is allowed)\n    * set up realms (username, password, role)\n    * tell the srver that you are using BASIC authentication\n    * specify which URLs should be access-controlled\n    * list all possible roles that will access any protected resources\n    * specify which URLs require SSL"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<web-app ...>\n  <security-constraint>\n    <web-resource-collection>\n      <web-resource-name>User Validation</web-resource-name>\n      <url-pattern>/*</url-pattern>\n    </web-resource-collection> \n    <auth-constraint>\n      <role-name>sprole</role-name> \n    </auth-constraint>\n  </security-constraint> \n  <login-config>\n    <auth-method>BASIC</auth-method>\n    <realm-name>BASIC Authentication Example</realm-name>\n  </login-config>\n  <user-data-contraint>\n    <transport_guarantee>CONFIDENTIAL</transport_guarantee>\n  </user-data-contraint>\n<... /web-app>"
+    },
+    {
+      "type": "markdown",
+      "data": "* Form-based authentication: web server collects user identification information via a customized login page"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<form-login-config>\n  <form-login-page>/WEB-INF/html/login.html</form-login-page>\n  <form-error-page>/WEB-INF/html/login-error.html</form-error- page>\n</form-login-config>"
+    },
+    {
+      "type": "markdown",
+      "data": "![Screen Shot 2018-02-12 at 8.17.12 PM.png](quiver-image-url/E529B50A04C0FFD03D8D4F5BFA085435.png =448x226)\n![Screen Shot 2018-02-12 at 8.17.21 PM.png](quiver-image-url/CC11E1D63C4190719FFD754970F915F8.png =446x202)\n* Combing declarative and programmatic security:\n  * rely on the server for username, passwords and toles\n  * manage access explicitly from within the servlets or JSP pages\n  * using the isUserInRole & getRemoteUser &getUserPrincipal HttpServletRequest method\n  * server still tracks users and sends dialog box if they are authenticated"
+    }
+  ]
+}
